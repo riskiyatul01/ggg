@@ -1,4 +1,5 @@
-1. Pengembangan Streamlit GUI
+## Pengembangan Streamlit GUI
+
     - Pustaka yang Digunakan: disini kita menggunakan Streamlit untuk membangun aplikasi web. Streamlit adalah pustaka Python yang memungkinkan pembuatan aplikasi interaktif dengan antarmuka pengguna yang sederhana tanpa memerlukan pengetahuan HTML/CSS.
     - Struktur Dasar GUI:
         - Judul Aplikasi:
@@ -44,7 +45,8 @@
             st.error(f"Error: {e}")
           ```
 
-2. Manajemen Antarmuka Pengguna
+## Manajemen Antarmuka Pengguna
+
     - Pengelolaan Status Sesi:
       - st.session_state digunakan untuk menyimpan status antara enkripsi dan dekripsi. Contoh:
         - Setelah enkripsi berhasil, ciphertext disimpan di st.session_state['ciphertext_blocks'], yang kemudian digunakan untuk dekripsi.
@@ -82,7 +84,8 @@
             st.error(f"Error: {e}")
           ```
 
-3. Fungsi AES (mini_aes.py)
+## Fungsi AES (mini_aes.py)
+
     - AES Encryption: Fungsi mini_aes_encrypt() dan mini_aes_decrypt() mengimplementasikan algoritma AES mini untuk mengenkripsi dan mendekripsi data, menggunakan operasi seperti Substitution (S-box), Shift Rows, Mix Columns, dan Add Round Key.
     - ECB & CBC Mode:
         - ECB: Setiap blok plaintext dienkripsi secara independen.
