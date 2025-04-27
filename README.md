@@ -20,9 +20,9 @@
 
 2. Manajemen Antarmuka Pengguna
     - Pengelolaan Status Sesi:
-          - st.session_state digunakan untuk menyimpan status antara enkripsi dan dekripsi. Contoh:
-              - Setelah enkripsi berhasil, ciphertext disimpan di st.session_state['ciphertext_blocks'], yang kemudian digunakan untuk dekripsi.
-              - Key, IV, dan Mode juga disimpan dalam sesi untuk digunakan kembali jika pengguna ingin mendekripsi pesan yang sudah dienkripsi sebelumnya.
+      - st.session_state digunakan untuk menyimpan status antara enkripsi dan dekripsi. Contoh:
+        - Setelah enkripsi berhasil, ciphertext disimpan di st.session_state['ciphertext_blocks'], yang kemudian digunakan untuk dekripsi.
+        - Key, IV, dan Mode juga disimpan dalam sesi untuk digunakan kembali jika pengguna ingin mendekripsi pesan yang sudah dienkripsi sebelumnya.
     - Fungsi Konversi:
         - to_hex_if_needed(): Fungsi ini memastikan input yang dimasukkan oleh pengguna dalam bentuk teks (plaintext atau kunci) dikonversi menjadi format hexadecimal yang sesuai.
         - hex_to_text_safe(): Fungsi ini digunakan untuk mengonversi ciphertext kembali menjadi teks, jika hasil dekripsi valid.
