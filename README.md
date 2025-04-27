@@ -14,7 +14,7 @@
         - Plaintext dan Key: Pengguna memasukkan plaintext (pesan yang akan dienkripsi) dan key (kunci enkripsi) dalam format hexadecimal menggunakan st.text_input.
         - Mode Operasi: Pengguna memilih mode enkripsi/dekripsi, yaitu ECB atau CBC, menggunakan st.selectbox.
         - IV untuk CBC: Jika mode CBC dipilih, pengguna juga memasukkan Initialization Vector (IV).
-        - 
+          
            cuplikan kode :
           ```      
             plaintext_input = st.text_input("Plaintext (Hex 16-bit)").strip()
