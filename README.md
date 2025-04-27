@@ -1,19 +1,16 @@
 1. Pengembangan Streamlit GUI
-Pustaka yang Digunakan: Kode ini menggunakan Streamlit untuk membangun aplikasi web. Streamlit adalah pustaka Python yang memungkinkan pembuatan aplikasi interaktif dengan antarmuka pengguna yang sederhana tanpa memerlukan pengetahuan HTML/CSS.
+- Pustaka yang Digunakan: disini kita menggunakan Streamlit untuk membangun aplikasi web. Streamlit adalah pustaka Python yang memungkinkan pembuatan aplikasi interaktif dengan antarmuka pengguna yang sederhana tanpa memerlukan pengetahuan HTML/CSS.
 
-Struktur Dasar GUI:
+- Struktur Dasar GUI:
+    - Judul Aplikasi: st.title("Mini-AES 16-bit Encryption Tool 🔒") memberikan judul pada aplikasi.
+    - Sidebar dengan Menu Pilihan: Menggunakan st.sidebar.selectbox, pengguna dapat memilih menu utama yang berisi tiga opsi:
+        1. Encrypt/Decrypt - Untuk mengenkripsi atau mendekripsi pesan.
 
-Judul Aplikasi: st.title("Mini-AES 16-bit Encryption Tool 🔒") memberikan judul pada aplikasi.
+        2. Avalanche Effect Test - Untuk menguji efek Avalanche dari algoritma enkripsi.
 
-Sidebar dengan Menu Pilihan: Menggunakan st.sidebar.selectbox, pengguna dapat memilih menu utama yang berisi tiga opsi:
+        3. File Operations - Untuk mengunggah dan mengenkripsi/dekripsi file teks.
 
-Encrypt/Decrypt - Untuk mengenkripsi atau mendekripsi pesan.
-
-Avalanche Effect Test - Untuk menguji efek Avalanche dari algoritma enkripsi.
-
-File Operations - Untuk mengunggah dan mengenkripsi/dekripsi file teks.
-
-Input Pengguna:
+- Input Pengguna:
 
 Plaintext dan Key: Pengguna memasukkan plaintext (pesan yang akan dienkripsi) dan key (kunci enkripsi) dalam format hexadecimal menggunakan st.text_input.
 
