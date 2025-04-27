@@ -2,81 +2,29 @@
 - Pustaka yang Digunakan: disini kita menggunakan Streamlit untuk membangun aplikasi web. Streamlit adalah pustaka Python yang memungkinkan pembuatan aplikasi interaktif dengan antarmuka pengguna yang sederhana tanpa memerlukan pengetahuan HTML/CSS.
 
 - Struktur Dasar GUI:
-    - Judul Aplikasi: st.title("Mini-AES 16-bit Encryption Tool 🔒") memberikan judul pada aplikasi.
-    - Sidebar dengan Menu Pilihan: Menggunakan st.sidebar.selectbox, pengguna dapat memilih menu utama yang berisi tiga opsi:
-        1. Encrypt/Decrypt - Untuk mengenkripsi atau mendekripsi pesan.
+    - Judul Aplikasi:
+      ![image](https://github.com/user-attachments/assets/e5718ae6-0d3a-4584-b63f-d8311fc42504)
+      memberikan judul pada aplikasi
 
-        2. Avalanche Effect Test - Untuk menguji efek Avalanche dari algoritma enkripsi.
+    - Sidebar Menu Pilihan: Menggunakan st.sidebar.selectbox untuk menampilkan menu yang memungkinkan pengguna memilih mode aplikasi (Encrypt/Decrypt, Avalanche Effect Test, File Operations).
+      ![image](https://github.com/user-attachments/assets/623785ca-3b45-4712-bc11-216c129979e2)
 
-        3. File Operations - Untuk mengunggah dan mengenkripsi/dekripsi file teks.
+    - Enkripsi dan Dekripsi (Encrypt/Decrypt):
+      1. Pengguna memasukkan plaintext, key, dan memilih mode (ECB atau CBC).
+      2. Jika mode CBC dipilih, pengguna juga harus memasukkan IV (Initialization Vector).
+      3. Tombol Encrypt dan Decrypt digunakan untuk memulai enkripsi atau dekripsi.
+        ![image](https://github.com/user-attachments/assets/99a95942-42b7-45d5-8d6e-efd8108ed714)
+        ![image](https://github.com/user-attachments/assets/14d74b2a-ab31-4bce-9a22-df3a7a539f3f)
+        ![image](https://github.com/user-attachments/assets/71b417df-024b-49af-9819-1a03114fb4fc)
 
-- Input Pengguna:
+- Avalanche Effect:
+    - Pengguna memasukkan plaintext dan key untuk menguji efek Avalanche, yang mengukur berapa banyak bit yang berubah jika satu bit dari plaintext diganti.
+        ![image](https://github.com/user-attachments/assets/7d31b909-f740-45fd-b880-8e1d981620be)\
+      
+- File Operations:
+  - Mengunggah file dan mengenkripsi/dekrip file tersebut.
 
-Plaintext dan Key: Pengguna memasukkan plaintext (pesan yang akan dienkripsi) dan key (kunci enkripsi) dalam format hexadecimal menggunakan st.text_input.
+    ![image](https://github.com/user-attachments/assets/f4d8309c-21fb-4783-b688-d52b87cabed2)
 
-Mode Operasi: Pengguna memilih mode enkripsi/dekripsi, yaitu ECB atau CBC, menggunakan st.selectbox.
+    ![image](https://github.com/user-attachments/assets/32af690a-5286-4488-98af-0df16c1ff715)
 
-IV untuk CBC: Jika mode CBC dipilih, pengguna juga memasukkan Initialization Vector (IV).
-
-Tombol Aksi:
-
-Encrypt: Tombol ini memulai proses enkripsi. Berdasarkan mode yang dipilih (ECB atau CBC), data dienkripsi menggunakan fungsi yang sesuai dari mini_aes.py.
-
-Decrypt: Tombol ini memungkinkan pengguna untuk mendekripsi ciphertext yang telah dienkripsi sebelumnya menggunakan mode yang sama (ECB atau CBC).
-
-Avalanche Effect: Tombol untuk menguji efek Avalanche dengan mengubah satu bit dari plaintext dan membandingkan perbedaan ciphertext.
-
-File Operations: Tombol untuk mengunggah file, mengenkripsi atau mendekripsi file tersebut dengan AES.
-
-Feedback untuk Pengguna:
-
-Success & Error Messages: Streamlit menyediakan berbagai fungsi seperti st.success(), st.error(), st.warning(), dan st.info() untuk menampilkan pesan hasil aksi pengguna, misalnya hasil enkripsi, kesalahan input, atau status file yang diunggah.
-
-2. Manajemen Antarmuka Pengguna
-Pengelolaan Status Sesi:
-
-st.session_state digunakan untuk menyimpan status antara enkripsi dan dekripsi. Contoh:
-
-Setelah enkripsi berhasil, ciphertext disimpan di st.session_state['ciphertext_blocks'], yang kemudian digunakan untuk dekripsi.
-
-Key, IV, dan Mode juga disimpan dalam sesi untuk digunakan kembali jika pengguna ingin mendekripsi pesan yang sudah dienkripsi sebelumnya.
-
-Fungsi Konversi:
-
-to_hex_if_needed(): Fungsi ini memastikan input yang dimasukkan oleh pengguna dalam bentuk teks (plaintext atau kunci) dikonversi menjadi format hexadecimal yang sesuai.
-
-hex_to_text_safe(): Fungsi ini digunakan untuk mengonversi ciphertext kembali menjadi teks, jika hasil dekripsi valid.
-
-Mode Operasi:
-
-ECB (Electronic Codebook): Enkripsi dilakukan blok per blok tanpa keterkaitan antara blok.
-
-CBC (Cipher Block Chaining): Enkripsi dilakukan dengan menggunakan IV yang menghubungkan blok-blok ciphertext secara berantai.
-
-File Operations:
-
-Upload File: Pengguna dapat mengunggah file teks yang berisi data yang ingin dienkripsi. File dibaca dan diubah menjadi blok-blok ciphertext setelah enkripsi.
-
-Save to File: Setelah proses enkripsi atau dekripsi, hasilnya disimpan ke dalam file baru yang dapat diunduh oleh pengguna.
-
-3. Fungsi AES (mini_aes.py)
-AES Encryption: Fungsi mini_aes_encrypt() dan mini_aes_decrypt() mengimplementasikan algoritma AES mini untuk mengenkripsi dan mendekripsi data, menggunakan operasi seperti Substitution (S-box), Shift Rows, Mix Columns, dan Add Round Key.
-
-ECB & CBC Mode:
-
-ECB: Setiap blok plaintext dienkripsi secara independen.
-
-CBC: Setiap blok plaintext di-XOR dengan blok ciphertext sebelumnya untuk meningkatkan keamanan.
-
-Avalanche Effect: Fungsi ini menguji seberapa besar perbedaan ciphertext saat satu bit dari plaintext diubah. Hal ini mengukur sensitivitas algoritma terhadap perubahan kecil dalam input, yang merupakan sifat penting dari algoritma kriptografi yang baik.
-
-Penjelasan Fungsionalitas Umum:
-Enkripsi & Dekripsi: Antarmuka memungkinkan pengguna untuk mengenkripsi atau mendekripsi data berdasarkan input yang diberikan.
-
-Hasil enkripsi ditampilkan dalam bentuk hexadecimal, dan jika teks dapat dipulihkan, hasil dekripsi juga akan ditampilkan sebagai teks UTF-8.
-
-Efek Avalanche: Menampilkan jumlah bit yang berubah ketika satu bit dalam plaintext diubah, menunjukkan bagaimana AES "mengacak" output secara dramatis dengan perubahan kecil pada input.
-
-Operasi File: Memungkinkan pengguna untuk mengenkripsi atau mendekripsi file teks, yang sangat berguna untuk pengguna yang ingin mengamankan data dalam jumlah besar tanpa harus memprosesnya secara manual.
-
-Secara keseluruhan, kode ini mengimplementasikan antarmuka pengguna interaktif untuk melakukan operasi kriptografi menggunakan AES dalam mode ECB dan CBC, serta menyediakan fitur untuk menguji sifat keamanan seperti efek Avalanche dan mengelola file teks yang perlu dienkripsi.
