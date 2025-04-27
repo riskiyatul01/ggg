@@ -3,9 +3,9 @@
     - Struktur Dasar GUI:
         - Judul Aplikasi: st.title("Mini-AES 16-bit Encryption Tool 🔒") memberikan judul pada aplikasi.
         - Sidebar dengan Menu Pilihan: Menggunakan st.sidebar.selectbox, pengguna dapat memilih menu utama yang berisi tiga opsi:
-        - Encrypt/Decrypt - Untuk mengenkripsi atau mendekripsi pesan.
-        - Avalanche Effect Test - Untuk menguji efek Avalanche dari algoritma enkripsi.
-        - File Operations - Untuk mengunggah dan mengenkripsi/dekripsi file teks.
+            a. Encrypt/Decrypt - Untuk mengenkripsi atau mendekripsi pesan.
+            b. Avalanche Effect Test - Untuk menguji efek Avalanche dari algoritma enkripsi.
+            c. File Operations - Untuk mengunggah dan mengenkripsi/dekripsi file teks.
     - Input Pengguna:
         - Plaintext dan Key: Pengguna memasukkan plaintext (pesan yang akan dienkripsi) dan key (kunci enkripsi) dalam format hexadecimal menggunakan st.text_input.
         - Mode Operasi: Pengguna memilih mode enkripsi/dekripsi, yaitu ECB atau CBC, menggunakan st.selectbox.
